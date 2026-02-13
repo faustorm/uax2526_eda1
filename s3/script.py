@@ -1,10 +1,20 @@
 from clases import Persona, Espacio
+from utils import comprobar_si_coinciden
+import time
 
-persona1 = Persona("Pepe",2007,["Ing. Matemática"])
+pepe = Persona("Pepe",2007,["Ing. Matemática"])
+ana = Persona("Ana",2005,["Ing. Matemática"],velocidad=2)
 
 espacio1 = Espacio("UAX BT502",(20,6))
 
-for _ in range(20):
+while True:
     #representamos el paso de tiempo con steps
-    persona1.mover()
-    print(persona1)
+    pepe.mover()
+    ana.mover()
+    if comprobar_si_coinciden(pepe, ana):
+        print(f"{pepe.nombre} y {ana.nombre} se pelean a muerte por si espacio en {espacio1.name}")
+    print(pepe)
+    print(ana)
+
+
+    time.sleep(1)
